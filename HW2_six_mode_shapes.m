@@ -111,21 +111,22 @@ w=sqrt(EigenValues);
 %EigenVectors
 
 %% using EulerStiffnessMatrix function to cross verify results
-constraints=[0.09875,0.2,0.025,0,1,0,1,0,0,0.15,0.05,0.0025,E,G,1,0; ...
-            0.00125,0.2,0.04875,0,1,0,1,0,0,0.15,0.0025,0.0025,E,G,1,0;
-            1,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0];
-KK=EulerStiffnessMatrix(constraints);
-
-[EigenVectorsc, EigenValuesc]=eig(Mtw\vpa(KK));
-
-
-wc=sqrt(EigenValuesc);
+% constraints=[0.09875,0.2,0.025,0,1,0,1,0,0,0.15,0.05,0.0025,E,G,1,0; ...
+%             0.00125,0.2,0.04875,0,1,0,1,0,0,0.15,0.0025,0.0025,E,G,1,0;
+%             1,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0];
+% KK=EulerStiffnessMatrix(constraints);
+% 
+% [EigenVectorsc, EigenValuesc]=eig(Mtw\vpa(KK));
+% 
+% 
+% wc=sqrt(EigenValuesc);
 %wc
 %EigenVectorsc
 % pretty close results!
 
 %% Display Final Solution
 modeShapes=["Mode Shape 1";"Mode Shape 2";"Mode Shape 3";"Mode Shape 4";"Mode Shape 5";"Mode Shape 6"];
+
 w1=vpa([EigenVectors(1,6);EigenVectors(1,5);EigenVectors(1,4);EigenVectors(1,3);EigenVectors(1,2);EigenVectors(1,1)],6);
 w2=vpa([EigenVectors(2,6);EigenVectors(2,5);EigenVectors(2,4);EigenVectors(2,3);EigenVectors(2,2);EigenVectors(2,1)],6);
 w3=vpa([EigenVectors(3,6);EigenVectors(3,5);EigenVectors(3,4);EigenVectors(3,3);EigenVectors(3,2);EigenVectors(3,1)],6);
